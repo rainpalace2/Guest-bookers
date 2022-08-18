@@ -1,14 +1,10 @@
+<%= render 'books/list',books: @books %>
 
 
 <h1>Books</h1>
-
- <% @books.each do |book| %>
- <%= link_to books_path(book.id) do %>
-
+<% @books.each do |book| %>
+<div>
+ <p>t:<%= book.title %></p>
+ <p>o:<%= book.body %></p>
+</div>
 <% end %>
- <p>Title : <%= book.title %></p>
- <p>Opinion : <%= book.body %></p>
-
-<% end %>
-
-<%= render 'books/list',user: @user %>

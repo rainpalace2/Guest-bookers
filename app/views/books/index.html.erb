@@ -1,27 +1,14 @@
-
- <h1>Books</h1>
- 
- <% @books.each do |book| %>
- 
- <p>Title</p>
- <sapn><%= book.title %></sapn>
- 
- <p>Opinion</p>
- <span><%= book.body %></span>
- 
- <% end %>
-
- <h2>New book</h2>
-   <%= form_with model: @book do |f| %>
-  <h4>Title</h4>
-   <%= f.text_field :title %>
+<%= render 'list',books: @books %>
+<
   
-  <h4>Opinion</h4>
-   <%= f.text_area :body %>
+  <h1>Books</h1>
   
-   <%= f.submit 'Create Book' %>
-  <% end %>
+  <% @books.each do |book| %>
+<div>
+ <p>t:<%= book.title %></p>
+ <p>o:<%= book.body %></p>
+ 
+</div>
+<% end %>
   
-  <%= render 'list',
-    
-  
+ 
