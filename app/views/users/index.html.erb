@@ -1,9 +1,11 @@
-<%= render 'books/list',books: @books %>
+<%= render 'books/list', user: current_user %>
 
 <h1>Users</h1>
+<%= image_tag current_user.get_profile_image(200,200) %>
 
-<%= @user.each do |user| %>
+<% @users.each do |user| %>
 <div>
- <p>image</p>
- <p>name</p>
+ <p><%= image_tag user.get_profile_image(100,100) %></p>
+ <p><%= user.name %></p>
 </div>
+<% end %>

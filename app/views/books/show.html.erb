@@ -1,10 +1,13 @@
 <%= render 'list',books: @books %>
 
 <h1>Book detail</h1>
+
+<%= @user.each do |user| %>
+<%= image_tag @book.user.get_profile_image(100,100) %>
 <div>
  <p>t:<%= @book.title %></p>
  <p>o:<%= @book.body %></p>
- <% if @book.user == current_user %>
+  <% if @book.user == current_user %>
   <%= link_to "Destroy",book_path(@book),method: :delete,"data-confirm" => "本当に削除しますか？" %>
  <% end %>
-</div>
+ </div>
