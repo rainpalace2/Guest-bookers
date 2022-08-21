@@ -1,12 +1,10 @@
-<%= render 'books/list',books: @books %>
+<%= render 'books/list',book: @book %>
 
 
 <h1>Books</h1>
 <% @books.each do |book| %>
 <div>
- <p>t:<%= book.title %></p>
- <p>o:<%= book.body %></p>
-
-
+ <p><%= book.title %></p>
+ <p><%= book.body %></p>
 </div>
 <% end %>

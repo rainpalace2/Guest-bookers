@@ -1,11 +1,26 @@
-<%= render 'books/list', user: current_user %>
+<div class="col-md-3">
+ <%= render 'books/list', user: current_user %>
+ <%= render 'books/book_new', book: @book %>
+</div>
 
-<h1>Users</h1>
-<%= image_tag current_user.get_profile_image(200,200) %>
-
-<% @users.each do |user| %>
-<div>
- <p><%= image_tag user.get_profile_image(100,100) %></p>
- <p><%= user.name %></p>
+<div class="col-md-8 offset-md-1">
+ <h2>Users</h2>
+ <table class="table">
+  <thead>
+   <tr>
+   <th><% @users.each do |user| %></th>
+   <th>image</th>
+   <th>name</th>
+   </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><%= image_tag user.get_profile_image(100,100) %><td>
+   <td><%= user.name %></td>
+   <td><%= link_to "Show",books_path %></td>
+  </tr>
+ </tbody>
+ </thead>
+</table>
 </div>
 <% end %>
