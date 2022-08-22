@@ -24,3 +24,8 @@
 |
 <%= link_to "Back",books_path %>
 
+<% if @book.id == current_user.id %>
+ <%= link_to edit_user_path(current_user.id) do %>
+<% end %>
+<% end %>
+

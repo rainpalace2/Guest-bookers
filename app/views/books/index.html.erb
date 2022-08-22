@@ -1,13 +1,23 @@
-<div class="container">
-  <div class="row">
-  
-    <% if @book.errors.any? %>
-     <%= @book.errors.count %>error prohibited this book
+ <p id ="notice"></p>
+ <div class="container px-5 px-sm-0">
+   
+ 
+ <% if @book.errors.any? %>
+  <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3> 
+  <ul>
+    <li>
       <%= @book.errors.full_messages.each do |message| %>
        <%= message %>
       <% end %>
     <% end %>
-  
+    </li>
+  </ul>
+</div>    
+<div class="container">
+  <div class="row">
+
+   
+
 <div class="col-md-3">
   <%= render 'list',user: @user %>
   <%= render 'book_new',book: @book %>
@@ -27,10 +37,10 @@
       <% @books.each do |book| %>
       <tbody>
         <tr>
-              <td><%= image_tag @user.get_profile_image(100,100) %></td>
-              <td><%= link_to book_path(@books) do %><%= book.title %><% end %></td>
+              <td><%= link_to user_path(book) do %><%= image_tag book.user.get_profile_image(100,100) %><% end %></td>
+              <td><%= link_to book_path(book) do %><%= book.title %><% end %></td>
               <td><%= book.body %></td>
-        </tr>  
+        </tr>
       </tbody>
     <% end %>
    </table>
@@ -40,4 +50,3 @@
 
 
 
- 
