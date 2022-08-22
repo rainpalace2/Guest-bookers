@@ -7,13 +7,18 @@
 </div>
 
 <div class="col-md-8 offset-md-1">
- <h2>Book detail</h2>
+  
+  <p id="notice">
+  </p>
+ 
+
+ <h1>Book detail</h1>
  <table class="table">
   <tbody>
    <tr>
-    <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
-    <td><%= @book.user.name %></td>
-    <td><%= @book.title %></td>
+    <td><%= link_to user_path(@user) do %><%= image_tag @book.user.get_profile_image(100,100) %><br>
+    <%= link_to user_path(@user) do %><%= @book.user.name %><% end %></td><% end %>
+    <td><%= link_to book_path(@book) do %><%= @book.title %><% end %></td>
     <td><%= @book.body %></td>
     <% if @book.user == current_user %>
     <td><%= link_to "Edit",edit_book_path(@book),class: 'btn btn-sm btn-success' %></td>
@@ -25,6 +30,8 @@
 </div>
 </div>
 <% end %>
+ </div>
+ 
 
  
  

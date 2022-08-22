@@ -1,3 +1,10 @@
+
+  <% if flash[:notice] %>
+ <p id="notice">
+   <%= flash[:notice] %>
+ </p>
+ <% end %>
+
 <h1>User info</h1>
   <%= image_tag user.get_profile_image(100,100) %>
    <table class ="table">

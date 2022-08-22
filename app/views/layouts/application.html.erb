@@ -17,19 +17,19 @@
        <div class="container">
        <a class="navbar-brand" href="/"><span>Bookers</span></a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
+       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarNavDropdown">
        <ul class="navbar-nav ml-auto">
          <% if user_signed_in? %>
         <li>
-        <%= link_to books_path,class: 'nav-link text-light' do %>     
+        <%= link_to user_path(@user),class: 'nav-link text-light' do %>
          <i class="fas fa-home"></i> Home
          <% end %>
         </li>
         <li>
-          <%= link_to users_path,class: 'nav-link text-light' do %>   
+          <%= link_to users_path,class: 'nav-link text-light' do %>
           <i class="fas fa-users"></i> Users
          <% end %>
         </li>
@@ -50,20 +50,20 @@
   </header>
         <% else %>
             <li>
-             <%= link_to root_path,class: 'nav-link text-light' do %>     
+             <%= link_to root_path,class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
              <% end %>
             <li>
-             <%= link_to about_path,class: 'nav-link text-light' do %>     
+             <%= link_to about_path,class: 'nav-link text-light' do %>
               <i class="fas fa-link"></i> About
              <% end %>
             </li>
             <li>
-             <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>     
+             <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
               <i class="fas fa-user-plus"></i> Sign Up
              <% end %>
             <li>
-             <%= link_to new_user_session_path,class: 'nav-link text-light' do %>     
+             <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
               <i class="fas fa-sign-in-alt"></i> Log in
              <% end %>
         </div>
