@@ -7,6 +7,7 @@ before_action :current_user, only: [:edit, :update]
   end
 
   def show
+   @users = User.all
    @user = User.find(params[:id])
    @book = Book.new
   end
@@ -35,15 +36,15 @@ before_action :current_user, only: [:edit, :update]
 
   def index
    @users = User.all
+   @user = current_user
    @book = Book.new
-   @user = User.find(current_user.id)
   end
 
   def update
       @user = User.find(params[:id])
       @user = current_user
       if @user.update(user_params)
-          flash[:notice] = "You have updated user succeessfully."
+          flash[:notice] = "You have updated user successfully."
           redirect_to user_path(@user)
       else
           render :edit
