@@ -10,6 +10,7 @@ before_action :current_user, only: [:edit, :update]
    @users = User.all
    @user = User.find(params[:id])
    @book = Book.new
+   @books = @user.books
   end
 
   def create
