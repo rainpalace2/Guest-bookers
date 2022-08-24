@@ -8,7 +8,7 @@ before_action :current_user, only: [:edit, :update]
 
   def show
    @users = User.all
-   @user = User.find(params[:id])
+   @user = current_user
    @book = Book.new
   end
 
