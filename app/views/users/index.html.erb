@@ -13,9 +13,10 @@
    <tr>
    <th>image</th>
    <th>name</th>
+   <th colspan="3"></th>
    </tr>
  </thead>
- <th><% @users.each do |user| %></th>
+ <% @users.each do |user| %>
  <tbody>
   <tr>
    <td><%= image_tag user.get_profile_image(100,100) %></td>
