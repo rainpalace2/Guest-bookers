@@ -17,10 +17,10 @@
      </tr>
     </tbody>
    </table>
-
+ <% if user.name != "guestuser" %>
  <div class="row">
   <%= link_to edit_user_path(user), class: "btn btn-outline-dark btn-block" do %>
    <span class="fas fa-user-cog"></span>
   <% end %>
  </div>
-
+  <% end %>

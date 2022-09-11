@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
 before_action :current_user, only: [:edit, :update]
-
+before_action :ensure_guest_user, only: [:edit]
+ 
   def new
    @book = Book.new
   end
@@ -28,7 +29,7 @@ before_action :current_user, only: [:edit, :update]
     @user = User.find(params[:id])
     if @user == current_user
      render "edit"
-     flash[:notice] = "You have updated user succeessfully."
+     flash[:notice] = "You have updated user successfully."
     else
      redirect_to user_path(current_user)
     end
@@ -63,6 +64,10 @@ before_action :current_user, only: [:edit, :update]
     params.require(:user).permit(:name,:introduction,:profile_image)
   end
 
-
-
+  def ensure_guest_user
+   @user = User.find(params[:id])
+   if @user.name == "guestuser"
+    redirect_to user_path(current_user)
+　 end
+  end
 end
