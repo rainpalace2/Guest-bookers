@@ -65,6 +65,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       if @user.name == "guestuser"
         redirect_to user_path(current_user)
-        　 end
+      end
     end
 end
